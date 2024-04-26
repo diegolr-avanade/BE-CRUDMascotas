@@ -26,7 +26,7 @@ namespace BE_CRUDMascotas.Models.Repositories
 
         public async Task<List<Mascota>> GetListMascotas()
         {
-            return await _context.Mascotas.ToListAsync();
+            return await _context.Mascotas.OrderByDescending(x => x.FechaCreacion).ToListAsync();
         }
 
         public async Task<Mascota> GetMascota(int id)
